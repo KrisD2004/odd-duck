@@ -4,7 +4,9 @@ function Product ( name, pathOfimage ) {
     this.timesImageshown = 0;
     this.clicks = 0;
 }
+//variables for product and render functions 
 let PicClicks = 0
+let views = 0 
 let maxClicks = 25;
 let ImagesArray = [];
 
@@ -71,11 +73,13 @@ ImagesArray.push(wineglass);
 // let randomPic3 = document.querySelector('#Image3')
 // randomPic3.setAttribute('src', randomProduct3.pathOfimage)
 
+// random image gen
 let randomPic = undefined
 function getRandomNumber(){
     return Math.floor(Math.random()* ImagesArray.length)
 }
 
+//function to get pictures to show
 function Pictures(){
     //getting random number
     let image1 = getRandomNumber();
@@ -110,6 +114,7 @@ function Pictures(){
 
 
 }
+//added button event listeners
 let resultButton = document.getElementById('Btn')
 function ProductClick(event){
 
@@ -117,11 +122,13 @@ function ProductClick(event){
         alert('Please click on an image');
       }
       PicClicks++;
+      views++;
       let clickImage = event.target.getAttribute('src');
       for (let i = 0; i < ImagesArray.length; i++) {
         if (clickImage === ImagesArray[i].pathOfimage) {
           console.log(ImagesArray[i].clicks)
-          ImagesArray[i].clicks++; 
+          ImagesArray[i].clicks++;
+          ImagesArray[i].timesImageshown++;
           break;
         }
       }
@@ -144,7 +151,7 @@ function ProductClick(event){
           let li = document.createElement('li')
           li.textContent = `${ImagesArray[i].name} had ${ImagesArray[i].timesImageshown} views and was clicked ${ImagesArray[i].clicks} times.`;
           ul.appendChild(li);
-          
+          //function to print out results for the views and votes
         }
       }
       // renderResults();

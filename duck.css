@@ -8,4 +8,23 @@ img {
     height:20%;
     margin:20px;
     cursor: pointer;
+    
 }
+
+#Image1 {
+    border-style: solid;
+    border-spacing: 0ch;
+}
+
+#Image2 {
+    border-style: solid;
+}
+
+#Image3 {
+    border-style: solid;
+}
+
+body {
+    background-color: orange;
+}
+
