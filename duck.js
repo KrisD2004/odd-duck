@@ -1,0 +1,173 @@
+function Product ( name, pathOfimage ) {
+    this.name = name;
+    this.pathOfimage = pathOfimage;
+    this.timesImageshown = 0;
+    this.clicks = 0;
+}
+let PicClicks = 0
+let maxClicks = 25;
+let ImagesArray = [];
+
+let bag = new Product('bag', 'bag.jpg');
+let banana = new Product('banana', 'banana.jpg');
+let bathroom = new Product('bathroom', 'bathroom.jpg');
+let boots = new Product('boots', 'boots.jpg');
+let breakfast = new Product('breakfast', 'breakfast.jpg');
+let bubblegum = new Product('bubblegum', 'bubblegum.jpg');
+let chair = new Product('chair', 'chair.jpg');
+let cthulhu = new Product('cthulhu', 'cthulhu.jpg');
+let dogduck = new Product('dog-duck', 'dog-duck.jpg');
+let dragon = new Product('dragon', 'dragon.jpg');
+let pen = new Product('pen', 'pen.jpg');
+let petsweep = new Product('pet-sweep', 'pet-sweep.jpg');
+let scissors = new Product('scissors', 'scissors.jpg');
+let shark = new Product('shark', 'shark.jpg');
+let sweep = new Product('sweep', 'sweep.png');
+let tauntaun = new Product('tauntaun', 'tauntaun.jpg');
+let unicorn = new Product('unicorn', 'unicorn.jpg');
+let watercan = new Product('water-can', 'water-can.jpg');
+let wineglass = new Product('wine-glass', 'wine-glass.jpg');
+
+//pushing images into empty array
+ImagesArray.push(bag);
+ImagesArray.push(banana);
+ImagesArray.push(bathroom);
+ImagesArray.push(boots);
+ImagesArray.push(breakfast);
+ImagesArray.push(bubblegum);
+ImagesArray.push(chair);
+ImagesArray.push(cthulhu);
+ImagesArray.push(dogduck);
+ImagesArray.push(dragon);
+ImagesArray.push(pen);
+ImagesArray.push(petsweep);
+ImagesArray.push(scissors);
+ImagesArray.push(shark);
+ImagesArray.push(sweep);
+ImagesArray.push(tauntaun);
+ImagesArray.push(unicorn);
+ImagesArray.push(watercan);
+ImagesArray.push(wineglass);
+
+
+//console.log(ImagesArray)
+
+//RandomImage Generator for image 1
+//let randomIndex = Math.floor(Math.random()* ImagesArray.length)
+//console.log("randomIndex:", randomIndex ) 
+// //let randomProduct = ImagesArray[randomIndex]
+// let randomPic = document.querySelector('#Image1')
+// randomPic.setAttribute('src', randomProduct.pathOfimage)
+
+//randomImage generator for image 2 
+//let randomIndex2 = Math.floor(Math.random()* ImagesArray.length)
+//let randomProduct2 = ImagesArray[randomIndex2]
+//let randomPic2 = document.querySelector('#Image2')
+//randomPic2.setAttribute('src', randomProduct2.pathOfimage)
+
+//randomImage gen for image3
+//let randomIndex3 = Math.floor(Math.random()* ImagesArray.length)
+// let randomProduct3 = ImagesArray[randomIndex3]
+// let randomPic3 = document.querySelector('#Image3')
+// randomPic3.setAttribute('src', randomProduct3.pathOfimage)
+
+let randomPic = undefined
+function getRandomNumber(){
+    return Math.floor(Math.random()* ImagesArray.length)
+}
+
+function Pictures(){
+    //getting random number
+    let image1 = getRandomNumber();
+    let image2 = getRandomNumber();
+    let image3 = getRandomNumber();
+
+    while (image1 === image2){
+        image2 = getRandomNumber();
+
+        // while (image2 === image3){
+        //     image3 = getRandomNumber();
+        // }
+    }
+    while (image2 === image3){
+        image3 = getRandomNumber();
+    }
+    while (image1 === image3){
+        image1 = getRandomNumber();
+    }
+
+    let randomProduct = ImagesArray[image1]
+    let randomPic = document.querySelector('#Image1')
+    randomPic.setAttribute('src', randomProduct.pathOfimage)
+
+    let randomProduct2 = ImagesArray[image2]
+    let randomPic2 = document.querySelector('#Image2')
+    randomPic2.setAttribute('src', randomProduct2.pathOfimage)
+
+    let randomProduct3 = ImagesArray[image3]
+    let randomPic3 = document.querySelector('#Image3')
+    randomPic3.setAttribute('src', randomProduct3.pathOfimage)
+
+
+}
+let resultButton = document.getElementById('Btn')
+function ProductClick(event){
+
+    if (event.target === document.querySelector('#Pictures')) {
+        alert('Please click on an image');
+      }
+      PicClicks++;
+      let clickImage = event.target.getAttribute('src');
+      for (let i = 0; i < ImagesArray.length; i++) {
+        if (clickImage === ImagesArray[i].pathOfimage) {
+          console.log(ImagesArray[i].clicks)
+          ImagesArray[i].clicks++; 
+          break;
+        }
+      }
+      if (PicClicks === maxClicks) {
+        document.querySelector('#Pictures').removeEventListener('click', ProductClick);
+        // give the button an event lister and styles so the user
+        // knows its an active button:
+        
+        resultButton.addEventListener('click', renderResults);
+        resultButton.className = 'clicks-allowed';
+        document.querySelector('#Pictures').className = 'no-voting';
+      } else {
+        Pictures();
+      }
+    }
+
+    function renderResults() {
+        let ul = document.querySelector('ul');
+        for (let i = 0; i < ImagesArray.length; i++) {
+          let li = document.createElement('li')
+          li.textContent = `${ImagesArray[i].name} had ${ImagesArray[i].timesImageshown} views and was clicked ${ImagesArray[i].clicks} times.`;
+          ul.appendChild(li);
+          
+        }
+      }
+      // renderResults();
+    // if (event.target === document.querySelector('#Pictures')){
+    //     alert('Please click on an image');
+    // }
+     Pictures();
+    
+    
+    
+
+
+let imageClick = document.querySelector('#Pictures')
+imageClick.addEventListener("click", ProductClick)
+
+
+
+
+
+// let click = document.getElementById('#pictures')
+// click.addEventListener('click')
+
+
+// let Image1 = document.querySelector('#Image1')
+// Image1.src='chair.jpg'
+// console.log("header", typeof(header))
