@@ -158,6 +158,7 @@ function ProductClick(event){
     // if (event.target === document.querySelector('#Pictures')){
     //     alert('Please click on an image');
     // }
+    //
      Pictures();
     
     
