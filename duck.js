@@ -159,6 +159,7 @@ function ProductClick(event){
           ul.appendChild(li);
           //function to print out results for the views and votes
         }
+        //new chart
         const ctx = document.getElementById('newChart');
         new Chart(ctx, {
           type: 'bar',
@@ -186,25 +187,6 @@ function ProductClick(event){
       }
       
 
-  // new Chart(ctx, {
-  //   type: 'bar',
-  //   data: {
-  //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  //     datasets: [{
-  //       label: '# of Votes',
-  //       data: [12, 19, 3, 5, 2, 3],
-  //       borderWidth: 1
-  //     }]
-  //   },
-  //   options: {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true
-  //       }
-  //     }
-  //   }
-  // });
-    
       //renderResults();
     // if (event.target === document.querySelector('#Pictures')){
     //     alert('Please click on an image');
