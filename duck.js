@@ -9,6 +9,8 @@ let PicClicks = 0
 let views = 0 
 let maxClicks = 25;
 let ImagesArray = [];
+let newImagesArray = ['bag','banana','bathroom','boots','breakfast','bubblegum','chair','cthulhu','dog-duck','dragon','pen','pet-sweep','scissors','shark','sweep','tauntaun','unicorn','water-can','wine-glass',]
+
 
 let bag = new Product('bag', 'bag.jpg');
 let banana = new Product('banana', 'banana.jpg');
@@ -114,6 +116,7 @@ function Pictures(){
 
 
 }
+
 //added button event listeners
 let resultButton = document.getElementById('Btn')
 function ProductClick(event){
@@ -145,7 +148,10 @@ function ProductClick(event){
       }
     }
 
+
     function renderResults() {
+      let imageClicks = [bag.clicks, banana.clicks, bathroom.clicks, boots.clicks, bubblegum.clicks, chair.clicks, cthulhu.clicks, dogduck.clicks, dragon.clicks, pen.clicks, petsweep.clicks, scissors.clicks, shark.clicks, sweep.clicks, tauntaun.clicks, unicorn.clicks, watercan.clicks, wineglass.clicks ];
+      let imageViews = [bag.timesImageshown, banana.timesImageshown, boots.timesImageshown, bubblegum.timesImageshown, chair.timesImageshown, cthulhu.timesImageshown, dogduck.timesImageshown, dragon.timesImageshown, pen.timesImageshown, petsweep.timesImageshown, scissors.timesImageshown, shark.timesImageshown, sweep.timesImageshown, tauntaun.timesImageshown, unicorn.timesImageshown, watercan.timesImageshown, wineglass.timesImageshown];
         let ul = document.querySelector('ul');
         for (let i = 0; i < ImagesArray.length; i++) {
           let li = document.createElement('li')
@@ -153,8 +159,53 @@ function ProductClick(event){
           ul.appendChild(li);
           //function to print out results for the views and votes
         }
+        const ctx = document.getElementById('newChart');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: newImagesArray,
+            datasets: [{
+              label: '# of votes',
+              data: imageClicks,
+              borderWidth: 1
+            },
+          {
+            label: '# of clicks',
+              data: imageViews,
+              borderWidth: 1
+          }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
       }
-      // renderResults();
+      
+
+  // new Chart(ctx, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //     datasets: [{
+  //       label: '# of Votes',
+  //       data: [12, 19, 3, 5, 2, 3],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true
+  //       }
+  //     }
+  //   }
+  // });
+    
+      //renderResults();
     // if (event.target === document.querySelector('#Pictures')){
     //     alert('Please click on an image');
     // }
@@ -167,6 +218,8 @@ function ProductClick(event){
 
 let imageClick = document.querySelector('#Pictures')
 imageClick.addEventListener("click", ProductClick)
+
+
 
 
 
