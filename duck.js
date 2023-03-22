@@ -204,13 +204,3 @@ imageClick.addEventListener("click", ProductClick)
 
 
 
-
-
-
-// let click = document.getElementById('#pictures')
-// click.addEventListener('click')
-
-
-// let Image1 = document.querySelector('#Image1')
-// Image1.src='chair.jpg'
-// console.log("header", typeof(header))
