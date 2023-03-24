@@ -2,6 +2,8 @@ section {
     display: flex;
     
     justify-content: center;
+    
+    justify-content: center;
 }
 
 img {
@@ -60,7 +62,6 @@ nav {
     font-size: 40px; 
     background-color: yellow;
 
-    
 
 }
 
