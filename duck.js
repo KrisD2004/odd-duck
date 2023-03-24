@@ -294,7 +294,7 @@ let imageClick = document.querySelector('#Pictures')
 imageClick.addEventListener("click", ProductClick)
 
 
-//local storage for lab 13
+///local storage for lab 13
 // let ImagesArrayString = JSON.stringify(ImagesArray)
 // localStorage.setItem('ImagesArray', ImagesArrayString)
 
