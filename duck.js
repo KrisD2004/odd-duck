@@ -263,7 +263,7 @@ function ProductClick(event){
               borderWidth: 1
             },
           {
-            label: '# of clicks',
+            label: '# of views',
               data: imageViews,
               borderWidth: 1
           }]

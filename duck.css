@@ -1,6 +1,7 @@
 section {
     display: flex;
-    width: 100vw;
+    
+    justify-content: center;
 }
 
 img {
@@ -8,12 +9,14 @@ img {
     height:20%;
     margin:20px;
     cursor: pointer;
+    margin-top: auto;
     
 }
 
 #Image1 {
     border-style: solid;
     border-spacing: 0ch;
+    
 }
 
 #Image2 {
@@ -25,6 +28,43 @@ img {
 }
 
 body {
-    background-color: white;
+    background-color: rgb(105, 180, 105);
 }
+
+h1 {
+    
+    text-align: center;
+    
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
+
+#Pictures{
+    background-color: yellow;
+}
+
+nav { 
+    
+    
+    font-size: 40px; 
+    background-color: yellow;
+    
+
+}
+
+#Paragraph {
+    font-size: larger;
+}
+
 
