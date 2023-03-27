@@ -260,12 +260,14 @@ function ProductClick(event){
             datasets: [{
               label: '# of votes',
               data: imageClicks,
-              borderWidth: 1
+              borderWidth: 1,
+              backgroundColor: 'Purple' 
             },
           {
             label: '# of views',
               data: imageViews,
-              borderWidth: 1
+              borderWidth: 1,
+              backgroundColor: 'Red'
           }]
           },
           options: {
